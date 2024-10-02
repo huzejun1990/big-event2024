@@ -12,11 +12,18 @@ public class JwtUtil {
 //    private static final String KEY = "dream";
 
 	//接收业务数据,生成token并返回
-    public static String genToken(Map<String, Object> claims) {
+/*    public static String genToken(Map<String, Object> claims) {
         return JWT.create()
                 .withClaim("claims", claims)
 //                .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 12))
                 .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 12))
+                .sign(Algorithm.HMAC256(KEY));
+    }*/
+
+    public static String genToken(Map<String, Object> claims) {
+        return JWT.create()
+                .withClaim("claims", claims)
+                .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 ))
                 .sign(Algorithm.HMAC256(KEY));
     }
 
