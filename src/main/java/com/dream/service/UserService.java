@@ -12,4 +12,10 @@ public interface UserService {
 
     //注册新用户
     void register(String username, String password);
+
+    //更新
+    void update(User user);
+
+    //更新图像
+    void updateAvatar(String avatarUrl);
 }

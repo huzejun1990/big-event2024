@@ -7,6 +7,7 @@ import com.dream.utils.JwtUtil;
 import com.dream.utils.Md5Util;
 import com.dream.utils.ThreadLocalUtil;
 import jakarta.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -59,9 +60,9 @@ public class UserController {
         //判断密码是否正确 loginUser对象中的password是密文
         if (Md5Util.getMD5String(password).equals(loginUser.getPassword())) {
             //登录成功
-            Map<String,Object> claims = new HashMap<>();
-            claims.put("id",loginUser.getId());
-            claims.put("username",loginUser.getUsername());
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("id", loginUser.getId());
+            claims.put("username", loginUser.getUsername());
             String token = JwtUtil.genToken(claims);
 //            return Result.success("jwt token令牌..");
 //            ValueOperations<String, String> operations = stringRedisTemplate.opsForValue();
@@ -77,11 +78,24 @@ public class UserController {
 /*        Map<String, Object> map = JwtUtil.parseToken(token);
         String username = (String) map.get("username");*/
 
-        Map<String,Object> map = ThreadLocalUtil.get();
+        Map<String, Object> map = ThreadLocalUtil.get();
         String username = (String) map.get("username");
         User user = userService.findByUserName(username);
         return Result.success(user);
 
-
     }
+
+    @PutMapping("/update")
+    public Result update(@RequestBody @Validated User user) {
+        userService.update(user);
+        return Result.success();
+    }
+
+    @PatchMapping("/updateAvatar")
+    public Result updateAvatar(@RequestParam @URL String avatarUrl) {
+        userService.updateAvatar(avatarUrl);
+        return Result.success();
+    }
+
+
 }

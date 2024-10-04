@@ -4,8 +4,12 @@ import com.dream.mapper.UserMapper;
 import com.dream.pojo.User;
 import com.dream.service.UserService;
 import com.dream.utils.Md5Util;
+import com.dream.utils.ThreadLocalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.Map;
 
 /**
  * @Auther: huzejun
@@ -29,5 +33,19 @@ public class UserServiceImpl implements UserService {
         String md5String = Md5Util.getMD5String(password);
         //添加
         userMapper.add(username,md5String);
+    }
+
+    @Override
+    public void update(User user) {
+        user.setUpdateTime(LocalDateTime.now());
+        userMapper.update(user);
+    }
+
+    @Override
+    public void updateAvatar(String avatarUrl) {
+        Map<String,Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+
+        userMapper.updateAvatar(avatarUrl,id);
     }
 }

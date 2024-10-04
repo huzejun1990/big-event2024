@@ -4,6 +4,7 @@ import com.dream.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * @Auther: huzejun
@@ -19,9 +20,11 @@ public interface UserMapper {
     @Insert("insert into user(username,password,create_time,update_time)" +
             " values (#{username},#{password},now(),now())")
     void add(String username, String password);
-//    void add(String username, String md5String);
 
-/*    @Insert("insert into user(username,password,create_time,update_time)" +
-            " values(#{username},#{password},now(),now())")
-    void add(String username, String password);*/
+    @Update("update user set nickname=#{nickname},email=#{email},update_time=#{updateTime} where id = #{id}")
+    void update(User user);
+
+    @Update("update user set user_pic=#{avatarUrl},update_time=now() where id = #{id}")
+    void updateAvatar(String avatarUrl,Integer id);
+
 }
