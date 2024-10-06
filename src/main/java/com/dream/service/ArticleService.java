@@ -1,6 +1,7 @@
 package com.dream.service;
 
 import com.dream.pojo.Article;
+import com.dream.pojo.PageBean;
 
 /**
  * @Auther: huzejun
@@ -9,4 +10,7 @@ import com.dream.pojo.Article;
 public interface ArticleService {
     //新增文章
     void add(Article article);
+
+    //条件分页列表查询
+    PageBean<Article> list(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 }
