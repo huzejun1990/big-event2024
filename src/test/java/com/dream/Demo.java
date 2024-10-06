@@ -23,8 +23,8 @@ public class Demo {
         String endpoint = "https://oss-cn-beijing.aliyuncs.com";
         // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
 //        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
-        String ACCESS_KEY_ID = "LTAI5tDX6CUJaFy7jWESMwXj";
-        String ACCESS_KEY_SECRET = "6wZX2yYRznfTF67vB4J0y7Qvw8VUWn";
+        String ACCESS_KEY_ID = "LTAI5tDX6CU（#######）JaFy7jWESMwXj";
+        String ACCESS_KEY_SECRET = "6wZX2yYRzn（#######）fTF67vB4J0y7Qvw8VUWn";
 
         // 填写Bucket名称，例如examplebucket。
         String bucketName = "big2024-event";

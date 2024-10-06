@@ -18,8 +18,8 @@ public class AliOssUtil {
 
     private static final String ENDPOINT = "https://oss-cn-beijing.aliyuncs.com";
     // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
-    private static final String ACCESS_KEY_ID = "LTAI5tDX6CUJaFy7jWESMwXj";
-    private static final String ACCESS_KEY_SECRET = "6wZX2yYRznfTF67vB4J0y7Qvw8VUWn";
+    private static final String ACCESS_KEY_ID = "LTAI5tDX6CUJa（#######）Fy7jWESMwXj";
+    private static final String ACCESS_KEY_SECRET = "6wZX2yYRznfT（#######）F67vB4J0y7Qvw8VUWn";
 
     // 填写Bucket名称，例如examplebucket。
     private static final String BUCKET_NAME = "big2024-event";
